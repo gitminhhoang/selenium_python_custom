@@ -17,8 +17,12 @@ def connect_to_debug_port(port):
     chrome_options = Options()
     chrome_options.add_experimental_option("debuggerAddress", f"localhost:{port}")  # Specify the debug port
 
+    # Launch Chrome using the configured options 
+    # tim driver tuong ung o link https://googlechromelabs.github.io/chrome-for-testing/latest-versions-per-milestone-with-downloads.json
+    path_to_chromedriver = 'D:/pythons/selenium_python_custom/chromedriver-win32/chromedriver.exe'
+    service = Service(executable_path=path_to_chromedriver)
     # Launch Chrome using the configured options
-    driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome(service=service, options=chrome_options)
     print("Conect port success")
     return driver
 
